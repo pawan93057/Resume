@@ -17,20 +17,20 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #e2e8f0;
+            background-color: #f1f5f9;
             color: var(--text-main);
             margin: 0;
             padding: 0;
         }
 
-        /* A4 Constraints */
+        /* Strict A4 Print Constraints */
         .page {
             width: 210mm;
             height: 297mm;
-            padding: 12mm; /* Reduced margins */
+            padding: 18mm; /* Standard professional margins */
             margin: 10mm auto;
             background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
             overflow: hidden;
@@ -38,214 +38,233 @@
         }
 
         @media print {
-            body { background: none; }
+            body { background: none; margin: 0; }
             .page { margin: 0; box-shadow: none; width: 210mm; height: 297mm; }
         }
 
-        h1 { color: var(--primary); letter-spacing: -0.02em; }
+        h1 { color: var(--primary); letter-spacing: -0.03em; }
+        
         h2 { 
             color: var(--primary); 
-            font-size: 11pt; 
+            font-size: 13pt; 
             font-weight: 700; 
             text-transform: uppercase; 
-            letter-spacing: 0.05em;
-            border-bottom: 1.5px solid #e2e8f0;
-            padding-bottom: 2px;
-            margin-bottom: 8px;
+            letter-spacing: 0.1em;
+            border-bottom: 2.5px solid #f1f5f9;
+            padding-bottom: 6px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
         }
 
         .contact-item {
-            font-size: 9pt;
+            font-size: 10.5pt;
             color: var(--text-main);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 8px;
+            transition: color 0.2s;
         }
 
         .contact-item:hover { color: var(--accent); }
 
-        .section-spacing { margin-bottom: 12px; }
+        /* Space-filling utilities */
+        .section-spacing { margin-bottom: 32px; flex-shrink: 0; }
         
-        .job-title { font-size: 10pt; font-weight: 700; color: var(--primary); }
-        .company-info { font-size: 9pt; font-weight: 600; color: var(--accent); }
-        .date-location { font-size: 8.5pt; color: var(--text-light); }
+        .job-title { font-size: 12pt; font-weight: 700; color: var(--primary); }
+        .company-info { font-size: 11pt; font-weight: 600; color: var(--accent); }
+        .date-location { font-size: 10pt; color: var(--text-light); font-weight: 500; }
         
-        p, li { font-size: 9pt; line-height: 1.4; margin-bottom: 4px; }
+        p, li { font-size: 10pt; line-height: 1.7; margin-bottom: 8px; }
         
         .skill-badge {
-            font-size: 8pt;
-            background: #f1f5f9;
+            font-size: 9pt;
+            background: #f8fafc;
             color: var(--primary);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 6px;
+            font-weight: 600;
             border: 1px solid #e2e8f0;
+            display: inline-block;
+            margin: 2px;
         }
 
-        ul { padding-left: 1.2rem; }
-        li { margin-bottom: 2px; position: relative; }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 6px; }
+
+        /* Layout adjustment to fill height */
+        .main-content {
+            display: flex;
+            gap: 12mm;
+            flex: 1; /* This pushes the layout to fill vertical space */
+        }
     </style>
 </head>
 <body>
 
     <div class="page" id="resume-content">
         <!-- Header -->
-        <header class="flex justify-between items-start border-b-4 border-slate-900 pb-4 mb-4">
+        <header class="flex justify-between items-center border-b-8 border-slate-900 pb-8 mb-10">
             <div>
-                <h1 class="text-3xl font-extrabold uppercase leading-none">Swapnil Vijay Shinde</h1>
-                <p class="text-blue-600 font-bold text-sm mt-1 uppercase tracking-widest">Lead Generation & Data Research Specialist</p>
+                <h1 class="text-5xl font-black uppercase leading-none">Swapnil Vijay Shinde</h1>
+                <p class="text-blue-600 font-extrabold text-lg mt-3 uppercase tracking-[0.2em]">Lead Generation & Data Research Specialist</p>
             </div>
-            <div class="text-right space-y-1">
+            <div class="text-right space-y-3">
                 <div class="contact-item justify-end">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                    Pune, Kharadi 411014
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    Pune, Maharashtra 411014
                 </div>
-                <a href="tel:7066025852" class="contact-item justify-end">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                <a href="tel:7066025852" class="contact-item justify-end font-semibold">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                     +91 7066025852
                 </a>
-                <a href="mailto:swapnilshinde7199@gmail.com" class="contact-item justify-end">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <a href="mailto:swapnilshinde7199@gmail.com" class="contact-item justify-end font-semibold">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
                     swapnilshinde7199@gmail.com
                 </a>
             </div>
         </header>
 
-        <div class="flex gap-8 flex-1">
-            <!-- Left Column -->
-            <div class="w-2/3">
-                <section class="section-spacing">
-                    <h2>Professional Objective</h2>
-                    <p class="text-justify italic">
-                        Highly analytical and results-driven professional specializing in B2B Lead Generation and Contact Discovery. Expert in high-volume data research and prospect identification, leveraging advanced mining tools and CRM systems to build high-converting sales pipelines and support strategic business development initiatives.
-                    </p>
-                </section>
+        <div class="main-content">
+            <!-- Left Column: Primary Information -->
+            <div class="w-[64%] flex flex-col justify-between">
+                <div>
+                    <section class="section-spacing">
+                        <h2>Executive Summary</h2>
+                        <p class="text-justify leading-relaxed">
+                            Strategic and analytical Data Research professional with a specialized focus on B2B Lead Generation and Pipeline Development. Expert in uncovering high-value opportunities by identifying C-level decision-makers and key stakeholders through advanced OSINT research and market intelligence frameworks. Proven track record of delivering high-accuracy datasets that drive sales conversions, utilizing a sophisticated technical stack to map complex organizational structures and optimize CRM data integrity.
+                        </p>
+                    </section>
 
-                <section class="section-spacing">
-                    <h2>Professional Experience</h2>
-                    
-                    <div class="mb-4">
-                        <div class="flex justify-between items-baseline">
-                            <span class="job-title">Lead Generation Executive</span>
-                            <span class="date-location">Oct 2025 – Mar 2026</span>
+                    <section class="section-spacing">
+                        <h2>Professional Experience</h2>
+                        
+                        <div class="mb-10">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <span class="job-title">Lead Generation Executive</span>
+                                <span class="date-location">Oct 2025 – Mar 2026</span>
+                            </div>
+                            <div class="company-info uppercase tracking-widest mb-3">MOTM Tech. | Wagholi, Pune</div>
+                            <ul class="list-disc ml-5 space-y-2">
+                                <li><strong>Target Acquisition:</strong> Execute deep-dive research to identify CXO, VP, and Director-level prospects within specific industry niches using Boolean logic and advanced search queries.</li>
+                                <li><strong>Pipeline Management:</strong> Build and curate verified prospect databases, delivering a consistent volume of 150-200 premium leads per week with documented 95%+ email deliverability.</li>
+                                <li><strong>Market Intelligence:</strong> Utilize premium platforms including LinkedIn Sales Navigator, Apollo.io, and ZoomInfo to extract firmographic and technographic insights.</li>
+                                <li><strong>Strategic Reporting:</strong> Provide comprehensive weekly lead quality reports and market analysis to the Business Development leadership team to refine outreach campaigns.</li>
+                            </ul>
                         </div>
-                        <div class="company-info uppercase tracking-wider mb-1">MOTM Tech. | Wagholi, Pune</div>
-                        <ul class="list-disc">
-                            <li>Identify and map key decision-makers (CXO, VP, Directors) across global industries using advanced boolean search and market intelligence.</li>
-                            <li>Develop and maintain high-quality prospect databases, consistently delivering 100-200 verified leads per week.</li>
-                            <li>Utilize premium intelligence platforms including Apollo, ZoomInfo, and LinkedIn Sales Navigator for accurate contact mining.</li>
-                            <li>Achieve 95% data accuracy through multi-stage verification processes using Zerobounce and NeverBounce.</li>
-                            <li>Manage CRM synchronization and provide detailed reporting to the sales leadership team.</li>
-                        </ul>
-                    </div>
 
-                    <div>
-                        <div class="flex justify-between items-baseline">
-                            <span class="job-title">Data Research Analyst</span>
-                            <span class="date-location">Aug 2024 – Sep 2025</span>
+                        <div class="mb-10">
+                            <div class="flex justify-between items-baseline mb-1">
+                                <span class="job-title">Data Research Analyst</span>
+                                <span class="date-location">Aug 2024 – Sep 2025</span>
+                            </div>
+                            <div class="company-info uppercase tracking-widest mb-3">OnDirect | Kharadi, Pune</div>
+                            <ul class="list-disc ml-5 space-y-2">
+                                <li><strong>Account Mapping:</strong> Conducted comprehensive organizational mapping for enterprise accounts to pinpoint specific budget holders and influencers.</li>
+                                <li><strong>Data Validation:</strong> Performed multi-channel verification of contact details using proprietary tools and web-scraping methodologies to reduce bounce rates.</li>
+                                <li><strong>CRM Optimization:</strong> Managed large-scale data migration and hygiene projects within Zoho CRM, ensuring data standardization and eliminating duplicate records.</li>
+                                <li><strong>Content Support:</strong> Collaborated with the marketing team to segment lead lists based on industry trends, enabling personalized and highly-targeted email sequences.</li>
+                            </ul>
                         </div>
-                        <div class="company-info uppercase tracking-wider mb-1">OnDirect | Kharadi, Pune</div>
-                        <ul class="list-disc">
-                            <li>Conducted comprehensive web research to profile target accounts and identify organizational hierarchies.</li>
-                            <li>Systematically gathered and validated contact information using proprietary databases and web-scraping techniques.</li>
-                            <li>Optimized lead quality by purging outdated records and standardizing data formatting in Google Sheets.</li>
-                            <li>Collaborated with the Business Development team to refine targeting criteria and improve lead conversion rates.</li>
-                        </ul>
-                    </div>
-                </section>
+                    </section>
+                </div>
 
-                <section class="section-spacing">
+                <section class="section-spacing mb-0">
                     <h2>Education</h2>
-                    <div class="space-y-3">
+                    <div class="space-y-6">
                         <div>
-                            <div class="flex justify-between font-bold text-slate-800 text-[9.5pt]">
-                                <span>Bachelor of Engineering (ENTC)</span>
-                                <span>7.9 CGPA</span>
+                            <div class="flex justify-between font-bold text-slate-800 text-[11pt]">
+                                <span class="uppercase">Bachelor of Engineering (ENTC)</span>
+                                <span class="text-blue-600">7.9 CGPA</span>
                             </div>
-                            <div class="flex justify-between text-[8.5pt] text-slate-600">
+                            <div class="flex justify-between text-[10pt] text-slate-500 mt-1 font-medium italic">
                                 <span>P.G. Moze College, Wagholi, Pune</span>
-                                <span>2020 – 2023</span>
+                                <span>Graduated 2023</span>
                             </div>
                         </div>
                         <div>
-                            <div class="flex justify-between font-bold text-slate-800 text-[9.5pt]">
-                                <span>Diploma in Electronics & Telecommunication</span>
-                                <span>60%</span>
+                            <div class="flex justify-between font-bold text-slate-800 text-[11pt]">
+                                <span class="uppercase">Diploma in Electronics & Telecommunication</span>
+                                <span class="text-blue-600">60.00%</span>
                             </div>
-                            <div class="flex justify-between text-[8.5pt] text-slate-600">
+                            <div class="flex justify-between text-[10pt] text-slate-500 mt-1 font-medium italic">
                                 <span>I.G.P. College, Belwandi, Ahmednagar</span>
-                                <span>2017 – 2020</span>
+                                <span>Graduated 2020</span>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
 
-            <!-- Right Column -->
-            <div class="w-1/3 border-l border-slate-100 pl-6">
-                <section class="section-spacing">
-                    <h2>Core Expertise</h2>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge">Contact Discovery</span>
-                        <span class="skill-badge">Lead Generation</span>
-                        <span class="skill-badge">Web Research</span>
-                        <span class="skill-badge">Data Mining</span>
-                        <span class="skill-badge">Market Intelligence</span>
-                        <span class="skill-badge">B2B Prospecting</span>
-                    </div>
-                </section>
+            <!-- Right Column: Skills & Expertise -->
+            <div class="w-[36%] border-l-4 border-slate-50 pl-10 flex flex-col justify-between">
+                <div>
+                    <section class="section-spacing">
+                        <h2>Core Expertise</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-badge">B2B Lead Gen</span>
+                            <span class="skill-badge">Contact Discovery</span>
+                            <span class="skill-badge">Market Analysis</span>
+                            <span class="skill-badge">Data Mining</span>
+                            <span class="skill-badge">OSINT Research</span>
+                            <span class="skill-badge">Account Profiling</span>
+                            <span class="skill-badge">Email Validation</span>
+                            <span class="skill-badge">Prospect Mapping</span>
+                        </div>
+                    </section>
 
-                <section class="section-spacing">
-                    <h2>Technical Stack</h2>
-                    <div class="space-y-3">
-                        <div>
-                            <p class="font-bold text-[8.5pt] mb-1">Prospecting Tools</p>
-                            <div class="flex flex-wrap gap-1">
-                                <span class="skill-badge">Sales Navigator</span>
-                                <span class="skill-badge">Apollo</span>
-                                <span class="skill-badge">ZoomInfo</span>
-                                <span class="skill-badge">Lusha</span>
-                                <span class="skill-badge">RocketReach</span>
+                    <section class="section-spacing">
+                        <h2>Technical Stack</h2>
+                        <div class="space-y-6">
+                            <div>
+                                <p class="font-bold text-[9.5pt] uppercase tracking-widest text-slate-400 mb-3">Prospecting Tools</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="skill-badge">Sales Navigator</span>
+                                    <span class="skill-badge">Apollo.io</span>
+                                    <span class="skill-badge">ZoomInfo</span>
+                                    <span class="skill-badge">Lusha</span>
+                                    <span class="skill-badge">RocketReach</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-bold text-[9.5pt] uppercase tracking-widest text-slate-400 mb-3">Verification Tools</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="skill-badge">Zerobounce</span>
+                                    <span class="skill-badge">NeverBounce</span>
+                                    <span class="skill-badge">SendGrid</span>
+                                    <span class="skill-badge">Service Object</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-bold text-[9.5pt] uppercase tracking-widest text-slate-400 mb-3">CRM & Productivity</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="skill-badge">Zoho CRM</span>
+                                    <span class="skill-badge">Google Sheets</span>
+                                    <span class="skill-badge">MS Excel Expert</span>
+                                    <span class="skill-badge">Automation</span>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <p class="font-bold text-[8.5pt] mb-1">Verification</p>
-                            <div class="flex flex-wrap gap-1">
-                                <span class="skill-badge">Zerobounce</span>
-                                <span class="skill-badge">NeverBounce</span>
-                                <span class="skill-badge">SendGrid</span>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-bold text-[8.5pt] mb-1">Data & CRM</p>
-                            <div class="flex flex-wrap gap-1">
-                                <span class="skill-badge">Zoho CRM</span>
-                                <span class="skill-badge">Google Sheets</span>
-                                <span class="skill-badge">MS Excel</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    </section>
 
-                <section class="section-spacing">
-                    <h2>Languages</h2>
-                    <div class="space-y-1">
-                        <div class="flex justify-between text-[8.5pt]"><span>English</span><span class="font-semibold">Professional</span></div>
-                        <div class="flex justify-between text-[8.5pt]"><span>Hindi</span><span class="font-semibold">Native</span></div>
-                        <div class="flex justify-between text-[8.5pt]"><span>Marathi</span><span class="font-semibold">Native</span></div>
-                    </div>
-                </section>
+                    <section class="section-spacing">
+                        <h2>Linguistic Skills</h2>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-[10pt] font-medium"><span>English</span><span class="text-blue-600 font-bold">Professional</span></div>
+                            <div class="flex justify-between text-[10pt] font-medium"><span>Hindi</span><span class="text-blue-600 font-bold">Native</span></div>
+                            <div class="flex justify-between text-[10pt] font-medium"><span>Marathi</span><span class="text-blue-600 font-bold">Native</span></div>
+                        </div>
+                    </section>
+                </div>
 
-                <section class="section-spacing">
-                    <h2>Interests</h2>
-                    <ul class="list-none p-0 text-[8.5pt] space-y-1">
-                        <li>• Market Analysis</li>
-                        <li>• Emerging Tech Trends</li>
-                        <li>• Professional Networking</li>
-                        <li>• Strategic Planning</li>
+                <section class="section-spacing mb-0">
+                    <h2>Key Interests</h2>
+                    <ul class="list-none p-0 text-[10pt] space-y-3 font-medium">
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-blue-600"></span>Market Research Analysis</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-blue-600"></span>Business Networking</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-blue-600"></span>Sales Tech Innovation</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-blue-600"></span>Lead Automation Trends</li>
                     </ul>
                 </section>
             </div>
